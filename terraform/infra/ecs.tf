@@ -1,3 +1,7 @@
+resource "aws_cloudwatch_log_group" "ecs" {
+  name = "/ecs/x0lie-analytics"
+}
+
 resource "aws_ecs_cluster" "main" {
   name = "x0lie-analytics"
 }
@@ -31,7 +35,6 @@ resource "aws_ecs_task_definition" "app" {
         "awslogs-group"         = "/ecs/x0lie-analytics"
         "awslogs-region"        = "us-east-1"
         "awslogs-stream-prefix" = "ecs"
-        "awslogs-create-group"  = "true"
       }
     }
   }])
